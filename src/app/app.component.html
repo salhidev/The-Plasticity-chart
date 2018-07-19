@@ -1,0 +1,87 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div ng-app="app" ng-controller="myCtrl">
+  <div style="text-align:center">
+    <h1>
+      Welcome to {{ title }}!
+    </h1>
+    
+  </div>
+  <h1>Soil Calculator</h1>
+  <div id='printable'>
+  <table id="myTable1">
+      <tr>
+          <th>LOTs #</th>
+        <th>Boring Results</th>
+        <th>Liquid Limit</th> 
+        <th>Plastic Limit</th>
+        <th>P.I.</th>
+        <th>% Passing</th>
+        <th>% Moisture</th>
+        <th>S/S Potential</th>
+        <th>Soil Classification</th>
+        <th>Footing D x W x T</th>
+        <th>Bearing Capacity</th>
+        <th>Design</th>
+        
+      </tr>
+      <tr>
+        <td><input  [(ngModel)]='Lot' (ngModelChange)="CalcTotal1(WW1, DW1)"  ></td>
+        <td><textarea rows="2" cols="30" [(ngModel)]='Boring'></textarea></td>
+        <td><input  [(ngModel)]='Result1'></td> 
+        <td><input  [(ngModel)]='Result2'></td>
+        <td><input  [(ngModel)]='PI'></td>
+        <td><input [(ngModel)]='Passing'></td>
+        <td><input  [(ngModel)]='Result3'></td>
+        <td><input  [(ngModel)]='Result144'></td> 
+          <td><input  [(ngModel)]='Result14'></td> 
+          <td><textarea rows="2" cols="25"  [(ngModel)]='Footing'></textarea></td> 
+        <td><INPUT TYPE="TEXT" value="3000 psf" ></td>
+          <td><input  [(ngModel)]='Design'></td> 
+      </tr>
+  
+    </table>
+  <table>
+  <tr>
+    <th></th>
+    <th> Soil Sample</th>
+    <th> Wet Weight</th>
+    <th> Dry Weight</th>
+    <th> Results</th>
+  </tr>
+  <tr>
+    <td>LL</td>
+    <td>S1</td>
+    <td><input  [(ngModel)]='WW1' (ngModelChange)="CalcTotal1(WW1, DW1)"  ></td>
+    <td><input [(ngModel)]='DW1'  (ngModelChange)="CalcTotal1(WW1, DW1)" ></td>
+    <td><input  [(ngModel)]='Result1'></td>
+  
+  </tr>
+  <tr>
+      <td>PL</td>
+      <td >S2</td>
+      <td><input  [(ngModel)]='WW2' (ngModelChange)="CalcTotal2(WW2, DW2)"  ></td>
+      <td><input [(ngModel)]='DW2'  (ngModelChange)="CalcTotal2(WW2, DW2)" ></td>
+      <td><input  [(ngModel)]='Result2'></td>
+      <p><input  [(ngModel)]='SideResult'></p>
+    </tr>
+    <tr>
+        <td>mios</td>
+        <td ></td>
+        <td><input  [(ngModel)]='WW3' (ngModelChange)="CalcTotal3(WW3, DW3)"  ></td>
+        <td><input  [(ngModel)]='DW3'  (ngModelChange)="CalcTotal3(WW3, DW3)" ></td>
+        <td><input  [(ngModel)]='Result3'></td>
+      </tr>
+      <tr>
+          <td>pass</td>
+          <td ></td>
+          <td><input  [(ngModel)]='WW4' (ngModelChange)="CalcTotal4(WW4, DW4)"  ></td>
+          <td><input  [(ngModel)]='DW4'  (ngModelChange)="CalcTotal4(WW4, DW4)" ></td>
+          <td><input  [(ngModel)]='Result4'></td>
+        </tr>
+  </table>
+</div>
+  <button (click)="exporttocsv()">Download</button>
+ 
+  </div>
+
+  
